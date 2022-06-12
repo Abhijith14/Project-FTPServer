@@ -1,0 +1,147 @@
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style type="text/css">
+  body {
+  background-color: #1b1f27;
+  font-family: Arial, Helvetica, sans-serif;
+
+  overflow: hidden;
+}
+
+.area-login {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+h1 {
+  color: #cbd0f7;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #181920;
+  width: 340px;
+  height: 350px;
+  border-radius: 8px;
+  padding: 35px;
+}
+
+.login form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login input {
+  margin-top: 15px;
+  background-color: #252a34;
+  color: #cbd0f7;
+  border: none;
+  height: 45px;
+  padding: 0 10px;
+  outline: none;
+  border-radius: 8px;
+}
+
+.login img {
+  width: 65px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+input::placeholder {
+  color: #cbd0f7;
+  font-size: 14px;
+  text-transform: capitalize;
+}
+
+form [type="submit"] {
+  display: inline-block;
+  background-color: #5568fe;
+  font-size: 17px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 25px 0;
+  cursor: pointer;
+
+  opacity: 0.8;
+}
+
+form [type="submit"]:hover {
+  opacity: 1;
+}
+
+p {
+  color: #cbd0f7;
+}
+
+p a {
+  color: #5568fe;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+</style>
+
+</head>
+
+<body>
+  <section class="area-login">
+    <h1>Remote File Access System</h1>
+    <div class="login">
+      <div>
+        <img src="logo.png" />
+      </div>
+      <form action="#">
+        <input id="username" type="text" name="username" hint="user" placeholder="Username"/>
+        <input id="password" type="password" name="passwd" hint="****" placeholder="Password"/>
+        <input id="submit" type="submit" value="Log In" />
+      </form>
+        <p>❌ Invalid Username/Password !</p>
+      <p>Developed by <a href="https://abhijithudayakumar.com/">ABHIJITH UDAYAKUMAR</a></p>
+    </div>
+  </section>
+</body>
+    <script>
+
+
+    $('#submit').click(function(){
+       var user = $('#username').val();
+       var passwd = $('#username').val();
+
+       console.log(user);
+
+        //datatosend = user+";"+passwd;
+        //result = runPyScript(datatosend);
+        //console.log('Got back ' + result);
+    });
+
+
+    function runPyScript(input){
+        var jqXHR = $.ajax({
+            type: "POST",
+            url: "/ftpserver.py",
+            async: false,
+            data: { mydata: input }
+        });
+    }
+
+    </script>
+</html>
